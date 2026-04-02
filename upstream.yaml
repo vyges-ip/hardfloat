@@ -1,0 +1,10 @@
+upstream:
+  source: https://github.com/bsg-external/HardFloat
+  branch: master
+  license: BSD-3-Clause
+  rtl_paths:
+    - source
+  exclude:
+    - test
+    - doc
+    - build

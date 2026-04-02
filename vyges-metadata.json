@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vyges.com/schema/v1/vyges-metadata.schema.json",
+  "name": "hardfloat",
+  "version": "1.0.0",
+  "description": "Berkeley HardFloat — IEEE 754 floating-point units for RISC-V and general-purpose use. Provides parameterized add, multiply, multiply-add, divide, square root, and format conversion units. Supports all IEEE 754 rounding modes, tininess detection, and exception flags. Recoded (redundant) floating-point format for efficient pipelining.",
+  "license": "BSD-3-Clause",
+  "maturity": "production",
+  "target": ["asic", "fpga"],
+  "design_type": ["digital"],
+  "created": "2010-01-01T00:00:00Z",
+  "updated": "2026-04-02T05:25:08Z",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/bsg-external/HardFloat",
+    "private": false,
+    "rtl_path": "source"
+  },
+  "interfaces": [],
+  "parameters": [
+    {"name": "expWidth", "type": "int", "default": "8", "description": "Exponent width (8 for single, 11 for double)"},
+    {"name": "sigWidth", "type": "int", "default": "24", "description": "Significand width including hidden bit (24 for single, 53 for double)"}
+  ],
+  "rtl_files": [
+    "source/HardFloat_primitives.v", "source/HardFloat_rawFN.v",
+    "source/iNToRecFN.v", "source/fNToRecFN.v",
+    "source/recFNToFN.v", "source/recFNToIN.v", "source/recFNToRecFN.v",
+    "source/isSigNaNRecFN.v",
+    "source/addRecFN.v", "source/mulRecFN.v", "source/mulAddRecFN.v",
+    "source/divSqrtRecFN.v", "source/divSqrtRecFN_medium.v", "source/divSqrtRecFN_small.v",
+    "source/divSqrtFN.v",
+    "source/compareRecFN.v",
+    "source/RISCV/HardFloat_specialize.v",
+    "source/bsg_hardfloat_pkg.sv"
+  ],
+  "rtl_quality": {
+    "module_prefixed": false,
+    "defines_prefixed": true,
+    "header_guards": false,
+    "one_module_per_file": true,
+    "self_contained_includes": true,
+    "no_translate_pragmas": true,
+    "lint_clean": false,
+    "no_casex": true,
+    "width_clean": false,
+    "no_sv_keyword_conflicts": true
+  },
+  "defines": [],
+  "categories": {
+    "primary": "Arithmetic Units",
+    "secondary": ["floating-point", "ieee754"],
+    "tags": ["fpu", "ieee754", "floating-point", "risc-v", "add", "multiply", "divide", "sqrt", "fma"]
+  },
+  "trust": {
+    "verification_level": "production",
+    "tapeout_count": 10,
+    "fpga_validated": true,
+    "maintained": true
+  },
+  "branding": {
+    "display_name": "HardFloat FPU"
+  }
+}
