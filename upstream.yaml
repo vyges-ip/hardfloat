@@ -1,10 +1,17 @@
+schema_version: "vyges-upstream-v1"
 upstream:
+  type: "standalone"
   source: https://github.com/bsg-external/HardFloat
   branch: master
-  license: BSD-3-Clause
-  rtl_paths:
-    - source
-  exclude:
-    - test
-    - doc
-    - build
+import:
+  rtl:
+    - path: "source"
+      map_to: "source"
+  license:
+    - path: "COPYING.txt"
+  readme:
+    - path: "README.md"
+license:
+  spdx: BSD-3-Clause
+  file: COPYING.txt
+metadata_locked: true
