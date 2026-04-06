@@ -1,10 +1,11 @@
 {
   "$schema": "https://vyges.com/schema/v1/vyges-metadata.schema.json",
+  "x-version": "1.0.0",
   "name": "hardfloat",
-  "version": "1.0.0",
-  "description": "Berkeley HardFloat \u2014 IEEE 754 floating-point units for RISC-V and general-purpose use. Provides parameterized add, multiply, multiply-add, divide, square root, and format conversion units. Supports all IEEE 754 rounding modes, tininess detection, and exception flags. Recoded (redundant) floating-point format for efficient pipelining.",
+  "version": "0.1.0",
+  "description": "Berkeley HardFloat is a hardware implementation of binary floating-point arithmetic conforming to the IEEE Standard for Floating-Point Arithmetic, encoded in Verilog with modifications for PPA improvement.",
   "license": "BSD-3-Clause",
-  "maturity": "production",
+  "maturity": "rtl_verified",
   "target": [
     "asic",
     "fpga"
@@ -12,75 +13,90 @@
   "design_type": [
     "digital"
   ],
-  "created": "2010-01-01T00:00:00Z",
-  "updated": "2026-04-02T05:25:08Z",
+  "created": "2026-04-06T04:31:25Z",
+  "updated": "2026-04-06T04:31:25Z",
   "source": {
     "type": "git",
     "url": "https://github.com/bsg-external/HardFloat",
+    "commit": "null",
+    "ip_path": ".",
     "private": false,
-    "rtl_path": "source"
+    "containsEncryptedPayload": false,
+    "indexing": true
   },
-  "interfaces": [],
-  "parameters": [
+  "maintainers": [
     {
-      "name": "expWidth",
-      "type": "int",
-      "default": "8",
-      "description": "Exponent width (8 for single, 11 for double)"
-    },
-    {
-      "name": "sigWidth",
-      "type": "int",
-      "default": "24",
-      "description": "Significand width including hidden bit (24 for single, 53 for double)"
+      "name": "Vyges",
+      "email": "team@vyges.com",
+      "url": "https://vyges.com",
+      "github": "vyges"
     }
   ],
-  "rtl_files": [
-    "source/HardFloat_primitives.v",
-    "source/HardFloat_rawFN.v",
-    "source/iNToRecFN.v",
-    "source/fNToRecFN.v",
-    "source/recFNToFN.v",
-    "source/recFNToIN.v",
-    "source/recFNToRecFN.v",
-    "source/isSigNaNRecFN.v",
-    "source/addRecFN.v",
-    "source/mulRecFN.v",
-    "source/mulAddRecFN.v",
-    "source/divSqrtRecFN.v",
-    "source/divSqrtRecFN_medium.v",
-    "source/divSqrtRecFN_small.v",
-    "source/divSqrtFN.v",
-    "source/compareRecFN.v",
-    "source/RISCV/HardFloat_specialize.v",
-    "source/bsg_hardfloat_pkg.sv"
-  ],
-  "rtl_quality": {
-    "module_prefixed": false,
-    "defines_prefixed": true,
-    "header_guards": false,
-    "one_module_per_file": true,
-    "self_contained_includes": true,
-    "no_translate_pragmas": true,
-    "lint_clean": false,
-    "no_casex": true,
-    "width_clean": false,
-    "no_sv_keyword_conflicts": true
+  "interfaces": [],
+  "parameters": [],
+  "performance": {},
+  "architecture": {
+    "type": "coprocessor",
+    "features": [
+      "IEEE-compliant floating-point arithmetic",
+      "binary floating-point operations",
+      "optimized for PPA improvements"
+    ]
   },
-  "defines": [],
+  "asic": {
+    "flavor": "digital",
+    "technology": [
+      "sky130A"
+    ]
+  },
+  "fpga": {
+    "toolchain": [
+      "Vivado"
+    ],
+    "devices": [
+      "Artix-7"
+    ]
+  },
+  "dependencies": [],
+  "test": {
+    "testbenches": [],
+    "status": "upstream_passing",
+    "coverage": "functional"
+  },
+  "documentation": {
+    "upstream": "https://github.com/bsg-external/HardFloat"
+  },
+  "artifacts": {
+    "total_rtl_lines": 0
+  },
   "categories": [
     {
       "main_category": "Arithmetic Units",
-      "sub_category": "floating-point, ieee754"
+      "sub_category": "Floating-Point Units"
     }
   ],
+  "keywords": [
+    "floating-point",
+    "IEEE 754",
+    "arithmetic",
+    "hardware implementation"
+  ],
   "trust": {
-    "verification_level": "production",
-    "tapeout_count": 10,
-    "fpga_validated": true,
-    "maintained": true
+    "verification_level": "simulation_passing",
+    "tapeout_count": 0,
+    "fpga_validated": false,
+    "formal_verified": false,
+    "maintained": true,
+    "last_activity": "2026-04-06"
   },
-  "branding": {
-    "display_name": "HardFloat FPU"
+  "meta": {
+    "template": {
+      "generator": "github-models-ai",
+      "template_version": "1.0.0",
+      "generated_at": "2026-04-06T04:31:25Z"
+    },
+    "schema": {
+      "version": "1.0.0"
+    }
   }
 }
