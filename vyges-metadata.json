@@ -3,7 +3,7 @@
   "x-version": "1.0.0",
   "name": "hardfloat",
   "version": "0.1.0",
-  "description": "Berkeley HardFloat is a hardware implementation of binary floating-point arithmetic conforming to the IEEE Standard for Floating-Point Arithmetic, encoded in Verilog with modifications for PPA improvement.",
+  "description": "Berkeley HardFloat is a hardware implementation of binary floating-point arithmetic conforming to the IEEE Standard for Floating-Point Arithmetic, encoded in Verilog with modifications for performance, power, and area (PPA) improvements.",
   "license": "BSD-3-Clause",
   "maturity": "rtl_verified",
   "target": [
@@ -13,8 +13,8 @@
   "design_type": [
     "digital"
   ],
-  "created": "2026-04-06T04:31:25Z",
-  "updated": "2026-04-06T04:31:25Z",
+  "created": "2026-04-13T02:13:18Z",
+  "updated": "2026-04-13T02:13:18Z",
   "source": {
     "type": "git",
     "url": "https://github.com/bsg-external/HardFloat",
@@ -32,97 +32,15 @@
       "github": "vyges"
     }
   ],
-  "interfaces": [
-    {
-      "type": "clock",
-      "name": "clock",
-      "signals": [
-        {
-          "name": "clk_i",
-          "direction": "input",
-          "type": "clock",
-          "width": 1
-        }
-      ]
-    },
-    {
-      "type": "reset",
-      "name": "reset",
-      "signals": [
-        {
-          "name": "rst_ni",
-          "direction": "input",
-          "type": "reset",
-          "width": 1,
-          "active_level": "low"
-        }
-      ]
-    },
-    {
-      "type": "bus",
-      "name": "ctrl",
-      "protocol": "apb",
-      "description": "Default control bus added by metadata fix pass \u2014 verify against RTL.",
-      "signals": [
-        {
-          "name": "psel_i",
-          "direction": "input",
-          "type": "control",
-          "width": 1
-        },
-        {
-          "name": "penable_i",
-          "direction": "input",
-          "type": "control",
-          "width": 1
-        },
-        {
-          "name": "pwrite_i",
-          "direction": "input",
-          "type": "control",
-          "width": 1
-        },
-        {
-          "name": "paddr_i",
-          "direction": "input",
-          "type": "address",
-          "width": 32
-        },
-        {
-          "name": "pwdata_i",
-          "direction": "input",
-          "type": "data",
-          "width": 32
-        },
-        {
-          "name": "prdata_o",
-          "direction": "output",
-          "type": "data",
-          "width": 32
-        },
-        {
-          "name": "pready_o",
-          "direction": "output",
-          "type": "control",
-          "width": 1
-        },
-        {
-          "name": "pslverr_o",
-          "direction": "output",
-          "type": "control",
-          "width": 1
-        }
-      ]
-    }
-  ],
+  "interfaces": [],
   "parameters": [],
   "performance": {},
   "architecture": {
     "type": "coprocessor",
     "features": [
-      "IEEE-compliant floating-point arithmetic",
-      "binary floating-point operations",
-      "optimized for PPA improvements"
+      "IEEE 754 compliant floating-point arithmetic",
+      "Support for single, double, and extended precision",
+      "Optimized for performance, power, and area (PPA)"
     ]
   },
   "asic": {
@@ -141,19 +59,12 @@
   },
   "dependencies": [],
   "test": {
-    "testbenches": [
-      {
-        "name": "upstream",
-        "path": "tb/",
-        "framework": "upstream",
-        "description": "Upstream project's testbench harness \u2014 see source repo."
-      }
-    ],
+    "testbenches": [],
     "status": "upstream_passing",
     "coverage": "functional"
   },
   "documentation": {
-    "upstream": "https://github.com/bsg-external/HardFloat"
+    "upstream": "https://www.jhauser.us/arithmetic/HardFloat.html"
   },
   "artifacts": {
     "total_rtl_lines": 0
@@ -168,7 +79,7 @@
     "floating-point",
     "IEEE 754",
     "arithmetic",
-    "hardware implementation"
+    "hardware"
   ],
   "trust": {
     "verification_level": "simulation_passing",
@@ -176,13 +87,13 @@
     "fpga_validated": false,
     "formal_verified": false,
     "maintained": true,
-    "last_activity": "2026-04-06"
+    "last_activity": "2026-04-13"
   },
   "meta": {
     "template": {
       "generator": "github-models-ai",
       "template_version": "1.0.0",
-      "generated_at": "2026-04-06T04:31:25Z"
+      "generated_at": "2026-04-13T02:13:18Z"
     },
     "schema": {
       "version": "1.0.0"
